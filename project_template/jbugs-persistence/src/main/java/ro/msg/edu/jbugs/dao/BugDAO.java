@@ -1,7 +1,7 @@
-package dao;
+package ro.msg.edu.jbugs.dao;
 
-import entity.Bug;
-import entity.User;
+import ro.msg.edu.jbugs.entity.Bug;
+import ro.msg.edu.jbugs.entity.User;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;

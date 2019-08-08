@@ -1,8 +1,8 @@
-package dao;
+package ro.msg.edu.jbugs.dao;
 
-import entity.Bug;
-import entity.Comment;
-import entity.User;
+import ro.msg.edu.jbugs.entity.Bug;
+import ro.msg.edu.jbugs.entity.Comment;
+import ro.msg.edu.jbugs.entity.User;
 import org.apache.commons.lang.time.DateUtils;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;

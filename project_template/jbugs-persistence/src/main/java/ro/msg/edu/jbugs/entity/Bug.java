@@ -1,9 +1,7 @@
-package entity;
+package ro.msg.edu.jbugs.entity;
 
 import javax.persistence.*;
 import java.sql.Date;
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 

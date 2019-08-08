@@ -1,11 +1,5 @@
 package ro.msg.edu.jbugs.dto;
 
-import entity.Bug;
-import entity.User;
-
-import javax.persistence.CascadeType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import java.io.Serializable;
 import java.sql.Date;
 

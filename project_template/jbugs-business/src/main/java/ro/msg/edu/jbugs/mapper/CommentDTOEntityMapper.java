@@ -1,6 +1,6 @@
 package ro.msg.edu.jbugs.mapper;
 
-import entity.Comment;
+import ro.msg.edu.jbugs.entity.Comment;
 import ro.msg.edu.jbugs.dto.CommentDTO;
 
 /**

@@ -1,6 +1,6 @@
 package ro.msg.edu.jbugs.manager.impl;
 
-import dao.CommentDAO;
+import ro.msg.edu.jbugs.dao.CommentDAO;
 import ro.msg.edu.jbugs.interceptors.LoggingInterceptor;
 import ro.msg.edu.jbugs.manager.remote.CommentManagerRemote;
 

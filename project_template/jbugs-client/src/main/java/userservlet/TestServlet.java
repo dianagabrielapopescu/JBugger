@@ -1,5 +1,6 @@
 package userservlet;
 
+import ro.msg.edu.jbugs.exception.BusinessException;
 import ro.msg.edu.jbugs.manager.impl.BugManager;
 import ro.msg.edu.jbugs.manager.impl.CommentManager;
 import ro.msg.edu.jbugs.dto.BugDTO;
@@ -11,6 +12,10 @@ import ro.msg.edu.jbugs.service.ScheduledService;
 import ro.msg.edu.jbugs.manager.impl.UserManager;
 
 import javax.ejb.EJB;
+import javax.jms.*;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -36,23 +41,35 @@ public class TestServlet extends HttpServlet {
     private BugManagerRemote bugManager;
     @EJB
     private CommentManagerRemote commentManager;
-    private UserDTO userDTO;
+
+    private UserDTO userDTO, userDTO2;
     private BugDTO bugDTO, bugDTO2;
     private String message;
 
     public void init(){
 
         message = "hello w!";
+
         userDTO = new UserDTO();
-        userDTO.setCounter(2);
+        userDTO.setCounter(0);
         userDTO.setEmail("altceva@gmail.com");
-        userDTO.setFirstName("maria");
+        userDTO.setFirstName("diana");
         userDTO.setLastName("popescu");
         userDTO.setMobileNumber("0040777");
-        userDTO.setPassword("abdra");
-        userDTO.setUsername("diaescu");
+        userDTO.setPassword("mypassword");
+       // userDTO.setUsername("");
         userDTO.setStatus(0);
 
+        userDTO2 = new UserDTO();
+        userDTO2.setCounter(3);
+        userDTO2.setEmail("altcevaceva@gmail.com");
+        userDTO2.setFirstName("diana");
+        userDTO2.setLastName("popescu");
+        userDTO2.setMobileNumber("0040777");
+        userDTO2.setPassword("dsd");
+        //userDTO2.setUsername("dfwec");
+        userDTO2.setStatus(1);
+/*
         bugDTO = new BugDTO();
         bugDTO.setTitle("omgg");
         bugDTO.setDescription("it happended by night");
@@ -74,15 +91,73 @@ public class TestServlet extends HttpServlet {
         bugDTO2.setStatus("in progress");
         bugDTO2.setAssignedToUser(userDTO);
         bugDTO2.setCreatedByUser(userDTO);
+  */
     }
-    public void doGet(HttpServletRequest httpRequest, HttpServletResponse httpServletResponse) throws IOException {
+    public void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws IOException {
         httpServletResponse.setContentType("text/html");
 
         PrintWriter out = httpServletResponse.getWriter();
         out.println("<h1>" + message + "</h1>");
 
-        //out.println(userDTO.toString());
-        //userManager.insert(userDTO);
+        out.println(userDTO.toString());
+        out.println("<br>");
+        userDTO = userManager.insert(userDTO);
+
+        out.println("<br>");
+/*
+        out.println(userDTO2.toString());
+        out.println("<br>");
+        userDTO2 = userManager.insert(userDTO2);
+
+        out.println("<br>");
+*/
+        out.println(userDTO.toString());
+
+        out.println("<br>");
+
+        try {
+            userDTO = userManager.login("popesd", "mypassword");
+        } catch (BusinessException e) {
+            e.printStackTrace();
+        }
+        out.println(userDTO.toString());
+        out.println("<br>");
+
+        try {
+            userDTO = userManager.login("popesd", "myWRONGpassword");
+        } catch (BusinessException e) {
+            e.printStackTrace();
+        }
+
+        out.println(userDTO.toString());
+        out.println("<br>");
+
+        //out.println(userDTO2.toString());
+
+        try {
+            String text = httpServletRequest.getParameter("text") != null ? httpServletRequest.getParameter("text") : "hello world!";
+            Context initialContext = new InitialContext();
+
+            ConnectionFactory connectionFactory =
+                    (ConnectionFactory) initialContext.lookup("java:comp/DefaultJMSConnectionFactory");
+            Queue queue = (Queue) initialContext.lookup("myqueue");
+
+            Connection connection = connectionFactory.createConnection();
+
+            Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+            MessageProducer publisher = session.createProducer(queue);
+
+            connection.start();
+
+            TextMessage message = session.createTextMessage(text);
+            publisher.send(message);
+
+        } catch (NamingException e){
+            System.out.println(e.getMessage());
+        } catch (JMSException e){
+            System.out.println(e.getMessage());
+        }
+        httpServletResponse.getWriter().println("Message Sent");
 
         //out.println(bugDTO.toString());
         //bugManager.insert(bugDTO);
@@ -90,10 +165,20 @@ public class TestServlet extends HttpServlet {
         //bugManager.insert(bugDTO2);
 
         //out.println("user with id 1 is:");
-        /*
-        UserDTO userDTO1 = userManager.find(1);
-        out.println(userDTO1.toString());
+/*
+        out.println(userDTO.getID());
+        //out.println(userDTO2.getID());
 
+
+        UserDTO varUserDTO = userManager.find(userDTO.getID());
+        out.println(varUserDTO.toString());
+
+        out.println("<br>");
+
+        UserDTO varUserDTO2 = userManager.find(userDTO2.getID());
+        out.println(varUserDTO2.toString());
+*/
+        /*
         BugDTO bugDTO3 = new BugDTO();
         bugDTO3.setTitle("insertedAfterFind");
         bugDTO3.setDescription("a");
@@ -123,13 +208,15 @@ public class TestServlet extends HttpServlet {
                 out.println("id: " + userDTO.getID() + ", bugs created: " + count));
 */
 
-        Integer del = commentManager.deleteOlderComments();
-        Integer upd = bugManager.updateStatusByTargetDate();
+        //Integer del = commentManager.deleteOlderComments();
+        //Integer upd = bugManager.updateStatusByTargetDate();
+
         /*
         out.println(del);
         out.println(upd);
         MailService.sendEmail(del, upd);
 */
+        //userManager.findAll().forEach(thisuser -> out.println(thisuser.toString()));
     }
     public void destroy(){
 

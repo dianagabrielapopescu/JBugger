@@ -1,6 +1,6 @@
 package ro.msg.edu.jbugs.mapper;
 
-import entity.User;
+import ro.msg.edu.jbugs.entity.User;
 import ro.msg.edu.jbugs.dto.UserDTO;
 
 /**

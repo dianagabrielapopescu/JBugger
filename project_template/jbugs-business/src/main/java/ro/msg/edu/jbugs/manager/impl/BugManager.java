@@ -1,7 +1,7 @@
 package ro.msg.edu.jbugs.manager.impl;
 
-import dao.BugDAO;
-import entity.Bug;
+import ro.msg.edu.jbugs.dao.BugDAO;
+import ro.msg.edu.jbugs.entity.Bug;
 import ro.msg.edu.jbugs.manager.remote.BugManagerRemote;
 import ro.msg.edu.jbugs.dto.BugDTO;
 import ro.msg.edu.jbugs.mapper.BugDTOEntityMapper;

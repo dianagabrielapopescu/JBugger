@@ -1,13 +1,7 @@
 package ro.msg.edu.jbugs.dto;
 
-import entity.User;
-
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import java.io.Serializable;
 import java.sql.Date;
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
 
 public class BugDTO implements Serializable {
     private Integer ID;

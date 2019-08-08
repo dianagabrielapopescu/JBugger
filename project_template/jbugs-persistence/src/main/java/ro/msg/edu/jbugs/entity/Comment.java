@@ -1,4 +1,4 @@
-package entity;
+package ro.msg.edu.jbugs.entity;
 
 import javax.persistence.*;
 import java.sql.Date;

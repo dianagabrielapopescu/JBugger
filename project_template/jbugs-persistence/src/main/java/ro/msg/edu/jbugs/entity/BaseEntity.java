@@ -1,9 +1,10 @@
-package entity;
+package ro.msg.edu.jbugs.entity;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import java.io.Serializable;
 
 /**
  * Document me.
@@ -12,7 +13,8 @@ import javax.persistence.MappedSuperclass;
  * @since 19.1.2
  */
 @MappedSuperclass
-public class BaseEntity {
+public class BaseEntity implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer ID;

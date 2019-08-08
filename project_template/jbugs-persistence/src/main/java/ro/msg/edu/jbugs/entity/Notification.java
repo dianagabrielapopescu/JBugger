@@ -1,4 +1,4 @@
-package entity;
+package ro.msg.edu.jbugs.entity;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -11,7 +11,12 @@ import java.sql.Date;
  */
 @Entity
 @Table(name = "notifications")
+@NamedQueries({
+        @NamedQuery(name = Notification.DELETE_OLD_NOTIFICATIONS, query = "delete from Notification n where n.date < :var_date")
+})
 public class Notification extends BaseEntity{
+
+    public static final String DELETE_OLD_NOTIFICATIONS = "deleteNotificationsOlderThan30days";
 
     private Date date;
     private String message;

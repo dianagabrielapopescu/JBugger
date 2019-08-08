@@ -1,6 +1,6 @@
 package ro.msg.edu.jbugs.mapper;
 
-import entity.Bug;
+import ro.msg.edu.jbugs.entity.Bug;
 import ro.msg.edu.jbugs.dto.BugDTO;
 
 public class BugDTOEntityMapper {
