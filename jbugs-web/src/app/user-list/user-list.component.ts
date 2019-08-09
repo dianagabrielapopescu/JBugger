@@ -10,6 +10,7 @@ import {Color} from '../app.component';
 export class UserListComponent implements OnInit {
   @Input()
   public userList: User[];
+  public showListOfColors = true;
   @Input()
   public colorList: Color[];
   constructor() { }

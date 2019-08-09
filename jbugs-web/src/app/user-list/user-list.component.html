@@ -14,6 +14,12 @@
   <li *ngFor="let person of userList">{{person.firstname}}, {{person.lastname}}</li>
 </ul>
 
-<ul>
+<ul *ngIf="showListOfColors">
   <li *ngFor="let c of colorList" [style.color]=c>{{c}}</li>
+</ul>
+
+<ul>
+  <li *ngFor="let person of userList">
+    <app-user [userSentFromUserListComponent]="person"></app-user>
+  </li>
 </ul>
