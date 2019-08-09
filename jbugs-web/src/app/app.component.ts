@@ -1,5 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {User, UserRole} from './models/user.model';
+import {UserListComponent} from "./user-list/user-list.component";
 
 export enum Color { Red= 'red', Blue= 'blue', Yellow= 'yellow'}
 
@@ -14,9 +15,11 @@ export class AppComponent {
   public colors: Color[] = [
     Color.Blue, Color.Red, Color.Yellow, Color.Red
   ];
+  @ViewChild('userListComponent', {static: false})
+  public inputListViewChild: UserListComponent;
   public users: User[] = [
     {
-      firstname: 'diana',
+      firstname: 'Diana',
       lastname: 'pop',
       age: 20,
       roles: [UserRole.CREATE_BUG, UserRole.CLOSE_BUG]
@@ -41,4 +44,7 @@ export class AppComponent {
     }
   ];
 
+  alertComponent() {
+    alert(this.inputListViewChild.userList[0].firstname);
+  }
 }

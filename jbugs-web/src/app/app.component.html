@@ -6,7 +6,8 @@
   <h2>
     {{subtitle}}
   </h2>
-  <app-user-list [userList]="users" [colorList]="colors"></app-user-list>
+  <button (click)="alertComponent()">alert component</button>
+  <app-user-list [userList]="users" [colorList]="colors" #userListComponent></app-user-list>
 </div>
 
 <router-outlet></router-outlet>

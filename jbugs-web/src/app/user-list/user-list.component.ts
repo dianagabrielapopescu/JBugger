@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {User} from '../models/user.model';
 import {Color} from '../app.component';
 
@@ -13,8 +13,12 @@ export class UserListComponent implements OnInit {
   public showListOfColors = true;
   @Input()
   public colorList: Color[];
+
   constructor() { }
 
+  alertUserFromList(user: User){
+    alert(user.firstname);
+  }
   ngOnInit() {
   }
 
