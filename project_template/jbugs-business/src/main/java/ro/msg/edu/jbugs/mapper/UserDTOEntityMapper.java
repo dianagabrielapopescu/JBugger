@@ -6,7 +6,7 @@ import ro.msg.edu.jbugs.dto.UserDTO;
 /**
  * Document me.
  *
- * @author msg systems AG; User Name.
+ * @author msg systems AG; UserModel Name.
  * @since 19.1.2
  */
 public class UserDTOEntityMapper {
@@ -42,7 +42,7 @@ public class UserDTOEntityMapper {
 
        return user;
         /*
-        return  new User(userDTO.getCounter(),
+        return  new UserModel(userDTO.getCounter(),
                 userDTO.getEmail(),
                 userDTO.getFirstName(),
                 userDTO.getLastName(),

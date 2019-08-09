@@ -17,7 +17,7 @@ public class BugTracker implements Serializable {
     private EntityManager em;
 
     public List<User> getAllUsers() {
-        Query q = em.createQuery("SELECT u FROM User u");
+        Query q = em.createQuery("SELECT u FROM UserModel u");
         return q.getResultList();
 
     }

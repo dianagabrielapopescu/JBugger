@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 /**
  * Document me.
  *
- * @author msg systems AG; User Name.
+ * @author msg systems AG; UserModel Name.
  * @since 19.1.2
  */
 @Stateless //paired with EJB... when used

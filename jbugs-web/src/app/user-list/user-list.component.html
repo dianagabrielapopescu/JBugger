@@ -1,1 +1,19 @@
-<p>user-list works!</p>
+<ul>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+  <li>4</li>
+  <li>5</li>
+</ul>
+
+<ul>
+  <li>{{userList[0].firstname}}, {{userList[0].lastname}}</li>
+</ul>
+
+<ul>
+  <li *ngFor="let person of userList">{{person.firstname}}, {{person.lastname}}</li>
+</ul>
+
+<ul>
+  <li *ngFor="let c of colorList" [style.color]=c>{{c}}</li>
+</ul>
