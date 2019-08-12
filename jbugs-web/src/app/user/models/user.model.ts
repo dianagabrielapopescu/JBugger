@@ -8,3 +8,7 @@ export interface User {
 export enum UserRole {
   EDIT_BUG = 'edit_bug', CLOSE_BUG = 'close_bug', CREATE_BUG = 'create_bug'
 }
+export interface TestUser {
+  firstname: string;
+  lastname: string;
+}

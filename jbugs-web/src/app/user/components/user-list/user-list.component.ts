@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {User} from '../../models/user.model';
+import {TestUser, User} from '../../models/user.model';
 import {Color} from '../../../app.component';
 import {UserService} from '../../services/user.service';
 
@@ -10,7 +10,7 @@ import {UserService} from '../../services/user.service';
 })
 export class UserListComponent implements OnInit {
   /*@Input()*/
-  public userList: User[];
+  public userList: TestUser[];
   public showListOfColors = true;
   @Input()
   public colorList: Color[];

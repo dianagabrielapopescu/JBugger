@@ -1,16 +1,14 @@
 import {Injectable} from '@angular/core';
-import {User, UserRole} from '../models/user.model';
-import {Observable, of} from "rxjs";
-import {promise} from "selenium-webdriver";
-import delayed = promise.delayed;
-import {delay} from "rxjs/operators";
+import {TestUser, User, UserRole} from '../models/user.model';
+import {Observable, of} from 'rxjs';
+import {BackendService} from '../../core/backend/services/backend.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor() { } // private backendService: BackendService
+  constructor(private backendService: BackendService) { }
   userHasCloseBugRole(userRoles: UserRole[]): boolean {
     for (const role of userRoles) {
       if (role == UserRole.CLOSE_BUG) {
@@ -19,7 +17,9 @@ export class UserService {
     }
     return false;
   }
-  getAllUsers(): Observable<User[]> {
+  getAllUsers(): Observable<TestUser[]> {
+    return this.backendService.get('http://localhost:8080/myapp/users');
+   /*
     return of( [
       {
         firstname: 'Diana',
@@ -46,5 +46,6 @@ export class UserService {
         roles: [UserRole.CLOSE_BUG]
       }
     ]).pipe(delay(5000));
+  */
   }
 }
