@@ -1,6 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
-import {User, UserRole} from './models/user.model';
-import {UserListComponent} from "./user-list/user-list.component";
+import {User, UserRole} from './user/models/user.model';
+import {UserListComponent} from "./user/components/user-list/user-list.component";
 
 export enum Color { Red= 'red', Blue= 'blue', Yellow= 'yellow'}
 
