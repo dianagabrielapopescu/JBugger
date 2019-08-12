@@ -19,5 +19,5 @@
 </ul>
 
 <ul *ngFor="let person of userList">
-    <app-user [userSentFromUserListComponent]="person" (output)="alertUserFromList($event)"></app-user>
+    <app-user [userSentFromUserListComponent]="person" (outputField)="alertUserFromList($event)"></app-user>
 </ul>

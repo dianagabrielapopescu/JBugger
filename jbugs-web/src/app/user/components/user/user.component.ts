@@ -10,11 +10,11 @@ export class UserComponent implements OnInit {
   @Input()
   userSentFromUserListComponent: User;
   @Output()
-  public output = new EventEmitter<User>();
+  public outputField = new EventEmitter<User>();
   constructor() { }
 
   alertUser(person: User){
-    this.output.emit(person);
+    this.outputField.emit(person);
   }
   ngOnInit() {
   }

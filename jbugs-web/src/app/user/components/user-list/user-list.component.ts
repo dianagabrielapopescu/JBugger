@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {User} from '../../models/user.model';
 import {Color} from '../../../app.component';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-user-list',
@@ -8,15 +9,19 @@ import {Color} from '../../../app.component';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-  @Input()
+  /*@Input()*/
   public userList: User[];
   public showListOfColors = true;
   @Input()
   public colorList: Color[];
 
-  constructor() { }
+  constructor(private userService: UserService) {
+    userService.getAllUsers().subscribe( (returnedUserList) => {
+      this.userList = returnedUserList;
+    });
+  }
 
-  alertUserFromList(user: User){
+  alertUserFromList(user: User) {
     alert(user.firstname);
   }
   ngOnInit() {
