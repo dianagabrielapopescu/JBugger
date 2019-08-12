@@ -1,10 +1,10 @@
 <ul *ngIf="userSentFromUserListComponent.firstname!='Batman'">
   <li>{{userSentFromUserListComponent.firstname}}</li>
-  <button (click)="alertUser(userSentFromUserListComponent)">alert {{userSentFromUserListComponent.firstname}}</button>
   <li>{{userSentFromUserListComponent.lastname}}</li>
   <li>{{userSentFromUserListComponent.age}}</li>
   <ul *ngFor="let role of userSentFromUserListComponent.roles">
     <li>{{role}}</li>
   </ul>
-
 </ul>
+<button appJumper (click)="alertUser(userSentFromUserListComponent)" align="center">alert {{userSentFromUserListComponent.firstname}}</button>
+<button appAuthorization [userRoles]="userSentFromUserListComponent.roles" (click)="alertUser(userSentFromUserListComponent)" align="center">close bug</button>
