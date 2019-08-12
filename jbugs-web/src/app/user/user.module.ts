@@ -4,6 +4,7 @@ import {UserListComponent} from './components/user-list/user-list.component';
 import {UserComponent} from './components/user/user.component';
 import {JumperDirective} from './directives/jumper/jumper.directive';
 import {AuthorizationDirective} from './directives/authorization/authorization.directive';
+import {BackendModule} from '../core/backend/backend.module';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import {AuthorizationDirective} from './directives/authorization/authorization.d
     AuthorizationDirective
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    BackendModule
   ],
   exports: [UserListComponent,
     JumperDirective]
