@@ -3,6 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/jbugger.iml" filepath="$PROJECT_DIR$/.idea/jbugger.iml" />
+      <module fileurl="file://$PROJECT_DIR$/project_template/jbugs.iml" filepath="$PROJECT_DIR$/project_template/jbugs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/project_template/jbugs-business/jbugs-business.iml" filepath="$PROJECT_DIR$/project_template/jbugs-business/jbugs-business.iml" />
+      <module fileurl="file://$PROJECT_DIR$/project_template/jbugs-client/jbugs-client.iml" filepath="$PROJECT_DIR$/project_template/jbugs-client/jbugs-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/project_template/jbugs-ear/jbugs-ear.iml" filepath="$PROJECT_DIR$/project_template/jbugs-ear/jbugs-ear.iml" />
+      <module fileurl="file://$PROJECT_DIR$/project_template/jbugs-persistence/jbugs-persistence.iml" filepath="$PROJECT_DIR$/project_template/jbugs-persistence/jbugs-persistence.iml" />
     </modules>
   </component>
 </project>

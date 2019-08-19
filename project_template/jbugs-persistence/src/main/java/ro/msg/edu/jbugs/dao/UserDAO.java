@@ -3,7 +3,6 @@ package ro.msg.edu.jbugs.dao;
 import com.google.common.hash.Hashing;
 import ro.msg.edu.jbugs.entity.User;
 import ro.msg.edu.jbugs.exception.BusinessException;
-import ro.msg.edu.jbugs.type.UserStatusType;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -101,10 +100,7 @@ public class UserDAO {
         Long occurences = entityManager.createNamedQuery(User.CHECK_USERNAME_UNIQUE, Long.class)
                 .setParameter("username", username)
                 .getSingleResult();
-        if(occurences != 0){
-            return false;
-        }
-        return true;
+        return occurences == 0;
     }
     public void insert(User user){
 

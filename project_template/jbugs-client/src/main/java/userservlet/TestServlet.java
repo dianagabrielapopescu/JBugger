@@ -114,7 +114,7 @@ public class TestServlet extends HttpServlet {
         out.println(userDTO.toString());
 
         out.println("<br>");
-
+/*
         try {
             userDTO = userManager.login("popesd", "mypassword");
         } catch (BusinessException e) {
@@ -133,7 +133,7 @@ public class TestServlet extends HttpServlet {
         out.println("<br>");
 
         //out.println(userDTO2.toString());
-
+/*
         try {
             String text = httpServletRequest.getParameter("text") != null ? httpServletRequest.getParameter("text") : "hello world!";
             Context initialContext = new InitialContext();
@@ -158,7 +158,7 @@ public class TestServlet extends HttpServlet {
             System.out.println(e.getMessage());
         }
         httpServletResponse.getWriter().println("Message Sent");
-
+*/
         //out.println(bugDTO.toString());
         //bugManager.insert(bugDTO);
         //out.println(bugDTO2.toString());
